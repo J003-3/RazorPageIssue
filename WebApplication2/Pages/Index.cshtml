@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@section Scripts
+{
+    <script>
+        $(".sbmt").click(function (e) {
+
+            e.preventDefault();
+
+            $.ajax({
+                type: "GET",
+                url: '/Prueba/Load/',
+                success: function (data) {
+                    alert("HOLA")
+                    // $('#partialView').html(data);
+                }
+            });
+        });
+
+    </script>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @Html.ActionLink("HOLA", "Load", "Prueba", null, new { @class = "sbmt"})
+</div>
+
+<div id="partialView">
+
+</div>
